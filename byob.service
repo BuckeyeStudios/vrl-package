@@ -3,9 +3,9 @@ Description=BYOB Server - Open Source
 After=network.target
 
 [Service]
-User=REPLACE_THIS_USERNAME
-WorkingDirectory=/home/REPLACE_THIS_USERNAME/byob/web-gui/
-ExecStart=/usr/bin/sh /home/REPLACE_THIS_USERNAME/byob/web-gui/service.sh
+User=byob_user
+WorkingDirectory=/home/byob_user/byob/web-gui/
+ExecStart=/usr/bin/sh /home/byob_user/byob/web-gui/service.sh
 Restart=always
 RestartSec=5
 
