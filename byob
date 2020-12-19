@@ -73,6 +73,7 @@ case $1 in
         echo "byob help - This help page"
         echo "byob start - Start your byob"
         echo "byob stop - Stop your byob"
+        echo "byob install - Install byob"
         echo "byob status - Get byob status"
         echo "byob follow - Follow your byob log and server"
         echo "byob enable - Enable your byob so it start on server bootup"
