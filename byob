@@ -52,6 +52,10 @@ case $1 in
     edit)
     sudo nano /etc/systemd/system/byob.service
     ;;
+    install)
+    sudo chmod 777 setup.sh
+    ./setup.sh
+    ;;
     follow)
     clear
     echo "  ____   __     __   ____    ____       _____                                     ";
