@@ -173,6 +173,14 @@ case $1 in
             echo "Do not cancel..."
             spin & SPIN_PID=$!
             sudo xargs apt install -y < reqs.txt >& /dev/null \
+            ; python3 -m pip install -r requirements.txt >& /dev/null \
+            ; cd ~/vrl-package \
+            ; python3 -m pip install -r reqs-pip.txt >& /dev/null \
+            ; cd \
+            ; chmod +x ~/vrl-package/uninstaller.sh \
+            ; chmod +x ~/vrl-package/start-byob.sh \
+            ; sudo apt install python3 -y && sudo apt install python3-pip -y >& /dev/null \
+            ; sudo pip3 install pyinstaller && sudo pip3 install flask && sudo pip3 install flask_sqlalchemy && sudo pip3 install flask_bcrypt && sudo pip3 install flask_login && sudo pip3 install flask_wtf && sudo pip3 install flask_mail >& /dev/null \
             ; sudo systemctl start avahi-daemon >& /dev/null \
             ; sudo systemctl enable avahi-daemon >& /dev/null \
             ; sudo systemctl start docker >& /dev/null \
@@ -182,14 +190,8 @@ case $1 in
             ; python3 ~/byob/byob/setup.py >& /dev/null \
             ; python3 -m pip install -r requirements.txt >& /dev/null \
             ; cd ~/byob/web-gui/ \
-            ; python3 -m pip install -r requirements.txt >& /dev/null \
-            ; cd ~/vrl-package \
-            ; python3 -m pip install -r reqs-pip.txt >& /dev/null \
-            ; cd \
-            ; chmod +x ~/vrl-package/uninstaller.sh \
-            ; chmod +x ~/vrl-package/start-byob.sh \
-            ; sudo usermod -aG docker $var_user  >& /dev/null
-            chmod -x ~/vrl-package/setup.sh \
+            ; sudo usermod -aG docker $var_user  >& /dev/null \
+            ; sudo chmod -x ~/vrl-package/setup.sh \
             ; PATH=$PATH:$HOME/.local/bin >& /dev/null \
             ; sudo chown $var_user:$var_user -R $HOME/byob >& /dev/null \
             ; touch $HOME/bootspool.log >& /dev/null \
